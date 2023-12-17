@@ -1,24 +1,24 @@
-# README
+## Hello, my name is Willian and I'm a beginner programmer!
+This repository is my personal project that I am creating to learn more about Rails
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+<h3 align="center"></h3>
 
-Things you may want to cover:
 
-* Ruby version
 
-* System dependencies
+### Setup
+1. Clone the project repository:
+- `git clone git@github.com:Willian9857/general.git`
 
-* Configuration
+2. Enter the root of the cloned project and run the commands below step by step:
+- `cd general`
 
-* Database creation
+3. Install the gems:
+- `bundle install` or `bundle`
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### dependencies
+<div align="center">
+  <img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white">
+  <img src="https://img.shields.io/badge/Ruby-CC342D?style=for-the-badge&logo=ruby&logoColor=white">
+  <img src="https://img.shields.io/badge/Linux-E34F26?style=for-the-badge&logo=linux&logoColor=black">
+  <img src="https://img.shields.io/badge/Ruby_on_Rails-CC0000?style=for-the-badge&logo=ruby-on-rails&logoColor=white">
+</div>
