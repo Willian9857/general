@@ -1,0 +1,62 @@
+<h1>Detalhes do Cliente</h1>
+
+<p><strong>Nome:</strong> <%= @client.nome %></p>
+<p><strong>Endereço:</strong> <%= @client.endereco %></p>
+<p><strong>Orçamento:</strong> <%= @client.preco %></p>
+
+<%= link_to 'Voltar', clients_path %>
+
+<%= form_with(model: @client, url: client_path(@client), method: :delete, data: { confirm: 'Tem certeza?' }) do |form| %>
+  <%= form.submit 'Apagar Cliente', class: 'btn btn-danger' %>
+<% end %>
+
+<style>
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 800px;
+  margin: 20px auto;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  color: #333;
+}
+
+strong {
+  font-weight: bold;
+}
+
+p {
+  margin: 10px 0;
+}
+
+.btn {
+  display: inline-block;
+  padding: 8px 16px;
+  font-size: 14px;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.btn-danger {
+  background-color: #d9534f;
+  color: #fff;
+  border: 1px solid #d9534f;
+}
+
+.btn-danger:hover {
+  background-color: #c9302c;
+  border-color: #ac2925;
+}
+</style>
