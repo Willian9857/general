@@ -11,6 +11,14 @@
   </head>
 
   <body>
-    <%= yield %>
+    <div class="sidenav">
+      <%= link_to 'Dashboard', dashboard_path%>
+      <%= link_to 'Novo cliente', new_client_path%>
+      <%= link_to 'Listar clientes', clients_path%>
+    </div>
+
+    <div class="main">
+            <%= yield %>
+    </div>
   </body>
 </html>

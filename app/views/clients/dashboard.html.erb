@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dashboard</title>
+  <%= javascript_include_tag 'application' %>
+  <%= stylesheet_link_tag 'application' %>
+  <%= javascript_include_tag 'https://cdn.jsdelivr.net/npm/chart.js' %>
+</head>
+<body>
+  <h1>Dashboard</h1>
+  <%= pie_chart @clients.pluck(:nome, :preco) %>
+   <div>
+     <h2>Total de Lucro: <%= @total_profit %></h2>
+
+     <ul>
+       <% @clients.each do |client| %>
+         <li><%= client.nome %> - <%= client.preco %></li>
+       <% end %>
+     </ul>
+   </div>
+</body>
+</html>

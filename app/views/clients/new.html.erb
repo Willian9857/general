@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    form {
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      width: 300px;
+      margin-top: 20px;
+    }
+
+    div {
+      margin-bottom: 15px;
+    }
+
+    label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    input {
+      width: 100%;
+      padding: 8px;
+      box-sizing: border-box;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    input[type="submit"] {
+      background-color: #4caf50;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+
+  <h1 style="text-align: center;">Criar Novo Cliente</h1>
+
+  <%= form_with model: @client do |form| %>
+    <form id="client-form">
+      <div>
+        <%= form.label :nome %>
+        <%= form.text_field :nome %>
+      </div>
+
+      <div>
+        <%= form.label :endereço %>
+        <%= form.text_field :endereco %>
+      </div>
+
+      <div>
+        <%= form.label :Orçamento %>
+        <%= form.text_field :preco %>
+      </div>
+
+      <div>
+        <%= form.submit "Criar Cliente", id: "create-client-btn" %>
+      </div>
+    </form>
+  <% end %>
+</body>
+</html>
