@@ -46,6 +46,12 @@ gem 'chartkick'
 
 gem 'rubocop', require: false
 
+gem 'simplecov', require: false, group: :test
+
+group :development, :test do
+  gem 'rspec-rails'
+end
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 
