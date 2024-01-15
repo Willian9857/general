@@ -11,6 +11,15 @@
           1,
           null,
           null,
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          1,
+          null,
           null
         ]
       },
@@ -304,6 +313,14 @@
       "/home/william.silva@vindi.corp/general/app/models/client.rb": {
         "lines": [
           1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          1,
           null
         ]
       },
@@ -315,6 +332,6 @@
         ]
       }
     },
-    "timestamp": 1704824375
+    "timestamp": 1705341084
   }
 }
