@@ -43,6 +43,7 @@
     <tr>
       <th>Nome</th>
       <th>Endereço</th>
+      <th>Email</th>
       <th>Orçamento</th>
       <th>Ações</th>
     </tr>
@@ -53,6 +54,7 @@
       <tr>
         <td><%= client.nome %></td>
         <td><%= client.endereco %></td>
+        <td><%= client.email %></td>
         <td><%= "R$#{client.preco}" %></td>
         <td>
           <%= button_to 'Visualizar', client_path(client), method: :get %>

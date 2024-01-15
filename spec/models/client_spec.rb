@@ -1,9 +1,18 @@
-require "rails_helper"
+require 'rails_helper'
 
-RSpec.describe "Cliente" do
-  context "Quando o cliente é cadastrado" do
-    it "Testa a instância do cliente" do
-      expect(Client.new).to be_present
-    end
+RSpec.describe Client, type: :model do
+  it "is not valid without a name" do
+    client = Client.new(nome: nil)
+    expect(client).to_not be_valid
+  end
+
+  it "is not valid without an email" do
+    client = Client.new(email: nil)
+    expect(client).to_not be_valid
+  end
+
+  it "is valid with valid attributes" do
+    client = Client.new(nome: "John Doe", email: "john@example.com")
+    expect(client).to be_valid
   end
 end

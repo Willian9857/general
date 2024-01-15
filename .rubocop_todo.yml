@@ -114,6 +114,7 @@ Style/Documentation:
     - 'app/models/client.rb'
     - 'config/application.rb'
     - 'db/migrate/20231218192017_create_clients.rb'
+    - 'db/migrate/20240115172249_email.rb'
 
 # Offense count: 1
 # This cop supports safe autocorrection (--autocorrect).
