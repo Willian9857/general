@@ -8,13 +8,13 @@
 </head>
 <body>
   <h1>Dashboard</h1>
-  <%= pie_chart @clients.pluck(:nome, :preco) %>
+  <%= pie_chart @clients.pluck(:nome, :deposito) %>
    <div>
      <h2>Total de Lucro: <%= @total_profit %></h2>
 
      <ul>
        <% @clients.each do |client| %>
-         <li><%= client.nome %> - <%= client.preco %></li>
+         <li><%= client.nome %> - <%= client.deposito %></li>
        <% end %>
      </ul>
    </div>

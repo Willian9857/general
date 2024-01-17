@@ -49,19 +49,28 @@
     </tr>
   </thead>
 
-  <tbody>
-    <% @clients.each do |client| %>
-      <tr>
-        <td><%= client.nome %></td>
-        <td><%= client.endereco %></td>
-        <td><%= client.email %></td>
-        <td><%= "R$#{client.preco}" %></td>
-        <td>
-          <%= button_to 'Visualizar', client_path(client), method: :get %>
-          <%= button_to 'Editar', edit_client_path(client), method: :get %>
-          <%= button_to 'Deletar', client_path(client), form: { data: { turbo_confirm: 'Tem certeza?' } }, method: :delete %>
-        </td>
-      </tr>
-    <% end %>
+<tbody>
+  <% @clients.each do |client| %>
+    <tr>
+      <td><%= client.nome %></td>
+      <td><%= client.endereco %></td>
+      <td><%= client.email %></td>
+      <td><%= number_to_currency(client.deposits.sum(:valor), unit: 'R$', precision: 2) %></td>
+      <td>
+        <%= button_to 'Visualizar', client_path(client), method: :get %>
+        <%= button_to 'Editar', edit_client_path(client), method: :get %>
+        <%= button_to 'Deletar', client_path(client), form: { data: { turbo_confirm: 'Tem certeza?' } }, method: :delete %>
+      </td>
+    </tr>
+  <% end %>
+
+  <!-- Adicione uma linha para exibir o total do orçamento -->
+  <tr>
+    <td colspan="3"><strong>Total do Orçamento:</strong></td>
+    <td><%= number_to_currency(@clients.sum { |client| client.deposits.sum(:valor) }, unit: 'R$', precision: 2) %></td>
+    <td></td>
+  </tr>
+</tbody>
+
   </tbody>
 </table>

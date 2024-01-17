@@ -1,0 +1,12 @@
+<h1>Novo Depósito</h1>
+
+<%= form_with(model: [@client, @deposit], local: true) do |form| %>
+  <div class="field">
+    <%= form.label :valor %>
+    <%= form.text_field :valor %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit 'Adicionar Depósito', class: 'button' %>
+  </div>
+<% end %>

@@ -1,9 +1,9 @@
 one:
   nome: MyString
   endereco: MyString
-  preco: 9.99
+  deposito: 9.99
 
 two:
   nome: MyString
   endereco: MyString
-  preco: 9.99
+  deposito: 9.99
