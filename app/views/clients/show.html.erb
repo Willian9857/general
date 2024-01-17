@@ -2,9 +2,21 @@
 
 <p><strong>Nome:</strong> <%= @client.nome %></p>
 <p><strong>Endereço:</strong> <%= @client.endereco %></p>
-<p><strong>Endereço:</strong> <%= @client.email %></p>
-<p><strong>Orçamento:</strong> <%= @client.preco %></p>
+<p><strong>Email:</strong> <%= @client.email %></p>
+<p><strong>Orçamento:</strong> <%= number_to_currency(@total_deposits, unit: 'R$', precision: 2) %></p>
 
+<% if @client.deposits.any? %>
+  <h2>Depósitos:</h2>
+  <ul>
+    <% @client.deposits.each do |deposit| %>
+      <li>Valor do Depósito: <%= number_to_currency(deposit.valor, unit: 'R$', precision: 2) %></li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>Nenhum depósito associado a este cliente.</p>
+<% end %>
+
+<%= link_to 'Novo Depósito', new_client_deposit_path(@client), class: 'button' %>
 <%= link_to 'Voltar', clients_path %>
 
 <%= form_with(model: @client, url: client_path(@client), method: :delete, data: { confirm: 'Tem certeza?' }) do |form| %>

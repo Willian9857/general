@@ -3,7 +3,7 @@ class CreateClients < ActiveRecord::Migration[7.0]
     create_table :clients do |t|
       t.string :nome
       t.string :endereco
-      t.decimal :preco
+      t.decimal :deposito
 
       t.timestamps
     end

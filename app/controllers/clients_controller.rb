@@ -11,6 +11,8 @@ class ClientsController < ApplicationController
   end
 
   def show
+    @client = Client.find(params[:id])
+    @total_deposits = @client.deposits.sum(:valor)
   end
 
   def new
@@ -42,7 +44,7 @@ class ClientsController < ApplicationController
   def dashboard
     @clients = Client.all
     
-    @total_profit = @clients.sum(&:preco) || 0
+    @total_profit = @clients.sum(&:deposito) || 0
   end
 
     private
@@ -52,6 +54,6 @@ class ClientsController < ApplicationController
   end
 
   def client_params
-    params.require(:client).permit(:nome, :endereco, :preco, :email)
+    params.require(:client).permit(:nome, :endereco, :deposito, :email)
   end
 end
