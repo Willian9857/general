@@ -42,9 +42,8 @@ class ClientsController < ApplicationController
   end
 
   def dashboard
-    @clients = Client.all
-    
-    @total_profit = @clients.sum(&:deposito) || 0
+    @clients = Client.includes(:deposits).all
+    @total_deposits = @clients.sum { |client| client.deposits.sum(:valor) }
   end
 
     private
