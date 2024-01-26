@@ -37,9 +37,10 @@ class ClientsController < ApplicationController
   end
 
   def destroy
+    @client.deposits.destroy_all
     @client.destroy
     redirect_to clients_url, notice: 'Cliente excluído com sucesso.'
-  end
+  end  
 
   def dashboard
     @clients = Client.includes(:deposits).all

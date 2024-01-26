@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :clients do
-    resources :deposits, only: [:new, :create]
+    resources :deposits
   end
 
   get 'dashboard', to: 'clients#dashboard'
