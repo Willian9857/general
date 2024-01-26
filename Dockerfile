@@ -1,13 +1,16 @@
-FROM node:14
+FROM ruby:3.0.2
 
-WORKDIR /usr/src/app
+RUN apt-get update -qq && apt-get install -y nodejs yarn sqlite3 libsqlite3-dev
 
-COPY package*.json ./
+RUN mkdir /app
+WORKDIR /app
 
-RUN npm install
+COPY Gemfile Gemfile.lock /app/
 
-COPY . .
+RUN bundle install --without development test
 
-EXPOSE 8080
+COPY . /app/
 
-CMD ["npm", "start"]
+RUN bundle exec rails assets:precompile
+
+CMD ["bundle", "exec", "rails", "server", "-b", "0.0.0.0"]

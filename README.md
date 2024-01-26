@@ -15,6 +15,10 @@ This repository is my personal project that I am creating to learn more about Ra
 3. Install the gems:
 - `bundle install` or `bundle`
 
+4. Suba o projeto pelo docker
+- `docker-compose build`
+- `docker-compose up`
+
 ### dependencies
 <div align="center">
   <img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white">
