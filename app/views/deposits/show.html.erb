@@ -1,0 +1,6 @@
+<h1>Detalhes do Depósito</h1>
+<p>Valor do Depósito: <%= number_to_currency(@deposit.valor, unit: 'R$', precision: 2) %></p>
+<%= form_with(model: @deposit, url: client_deposit_path(@client, @deposit), method: :delete, data: { confirm: 'Tem certeza?' }) do |form| %>
+  <!-- ... outros campos ou conteúdo do formulário ... -->
+  <%= form.submit 'Excluir' %>
+<% end %>

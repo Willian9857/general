@@ -1,0 +1,13 @@
+<% if @client.deposits.any? %>
+  <h2>Depósitos:</h2>
+  <ul>
+    <% @client.deposits.each do |deposit| %>
+      <li>
+        Valor do Depósito: <%= number_to_currency(deposit.valor, unit: 'R$', precision: 2) %>
+        <%= link_to 'Excluir', client_deposit_path(@client, deposit), method: :delete, data: { confirm: 'Tem certeza?' }, class: 'delete-link' %>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>Nenhum depósito associado a este cliente.</p>
+<% end %>

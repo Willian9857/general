@@ -1,6 +1,10 @@
 class DepositsController < ApplicationController
   before_action :set_client
 
+  def index
+    @deposits = Deposit.all
+  end
+
   def new
     @deposit = @client.deposits.new
   end
@@ -8,6 +12,8 @@ class DepositsController < ApplicationController
   def show
     @client = Client.find(params[:client_id])
     @deposit = @client.deposits.find(params[:id])
+
+    respond_to(&:html)
   end
 
   def create
@@ -18,6 +24,14 @@ class DepositsController < ApplicationController
     else
       render :new
     end
+  end
+
+  def destroy
+    @client = Client.find(params[:client_id])
+    @deposit = @client.deposits.find(params[:id])
+    puts "Client ID: #{@client.id}, Deposit ID: #{@deposit.id}"
+    @deposit.destroy
+    redirect_to client_path(@client), notice: 'Depósito excluído com sucesso.'
   end
 
   private
