@@ -64,11 +64,6 @@
     </tr>
   <% end %>
 
-  <tr>
-    <td colspan="3"><strong>Total do Orçamento:</strong></td>
-    <td><%= number_to_currency(@clients.sum { |client| client.deposits.sum(:valor) }, unit: 'R$', precision: 2) %></td>
-    <td></td>
-  </tr>
 </tbody>
 
   </tbody>
