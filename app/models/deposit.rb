@@ -1,4 +1,4 @@
 class Deposit < ApplicationRecord
   belongs_to :client
-  attribute :valor, :integer
+  attribute :valor, :decimal, precision: 8, scale: 2
 end

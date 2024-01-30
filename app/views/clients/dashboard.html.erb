@@ -8,16 +8,28 @@
 </head>
 <body>
   <h1>Dashboard</h1>
+
   <%= pie_chart @clients.pluck(:nome, :valor) %>
-   <div>
-    <h2>Total de Lucro: <td><%= number_to_currency(@clients.sum { |client| client.deposits.sum(:valor) }, unit: 'R$', precision: 2) %></td></h2>
 
-  <ul>
-    <% @clients.each do |client| %>
-      <li><%= client.nome %> - <%= number_to_currency(client.deposits.sum(:valor), unit: 'R$', precision: 2) %></li>
-    <% end %>
-  </ul>
+  <div>
+    <h2>Total de Lucro: <%= number_to_currency(@clients.sum { |client| client.deposits.sum(:valor) }, unit: 'R$', precision: 2) %></h2>
 
+    <table border="1">
+      <thead>
+        <tr>
+          <th>Cliente</th>
+          <th>Total Depositos</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @clients.each do |client| %>
+          <tr>
+            <td><%= client.nome %></td>
+            <td><%= number_to_currency(client.deposits.sum(:valor), unit: 'R$', precision: 2) %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
   </div>
 </body>
 </html>
