@@ -1,6 +1,55 @@
-<h1>Detalhes do Depósito</h1>
-<p>Valor do Depósito: <%= number_to_currency(@deposit.valor, unit: 'R$', precision: 2) %></p>
-<%= form_with(model: @deposit, url: client_deposit_path(@client, @deposit), method: :delete, data: { confirm: 'Tem certeza?' }) do |form| %>
-  <!-- ... outros campos ou conteúdo do formulário ... -->
-  <%= form.submit 'Excluir' %>
-<% end %>
+<style>
+.details-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.details-container h1 {
+  color: #333;
+}
+
+.details-container p {
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.details-container form {
+  width: 300px;
+  margin: auto;
+  background-color: #fff;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+.details-container label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.details-container input[type="submit"] {
+  background-color: #e74c3c;
+  color: white;
+  padding: 10px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  border-radius: 4px;
+  width: 100%;
+}
+
+.details-container input[type="submit"]:hover {
+  background-color: #c0392b;
+}
+</style>
+<div class="details-container">
+  <h1>Detalhes do Depósito</h1>
+  <p>Valor do Depósito: <%= number_to_currency(@deposit.valor, unit: 'R$', precision: 2) %></p>
+  <%= form_with(model: @deposit, url: client_deposit_path(@client, @deposit), method: :delete, data: { confirm: 'Tem certeza?' }) do |form| %>
+    <%= form.submit 'Excluir' %>
+  <% end %>
+</div>
