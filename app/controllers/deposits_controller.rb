@@ -6,22 +6,21 @@ class DepositsController < ApplicationController
   end
 
   def new
-    @deposit = @client.deposits.new
+    @deposit = @client.deposits.build
   end
 
   def show
-    @client = Client.find(params[:client_id])
     @deposit = @client.deposits.find(params[:id])
-
     respond_to(&:html)
   end
 
   def create
-    @deposit = @client.deposits.new(deposit_params)
+    @deposit = @client.deposits.build(deposit_params)
 
     if @deposit.save
       redirect_to @client, notice: 'Depósito adicionado com sucesso.'
     else
+      flash[:alert] = 'Erro ao salvar o depósito.'
       render :new
     end
   end
