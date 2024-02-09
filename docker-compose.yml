@@ -1,13 +1,11 @@
 version: '3'
 services:
   web:
-    image: ruby:3.0
-    command: bash -c 'bundle && rm -f tmp/pids/server.pid && bundle exec rails s -b 0.0.0.0'
-    working_dir: /app  
-    volumes:
-      - .:/app
+    build: .
     ports:
       - "3000:3000"
-
-  redis:
-    image: "redis:alpine"
+  db:
+    image: "alpine:latest"
+    command: tail -f /dev/null
+    volumes:
+      - ./db:/db
