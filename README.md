@@ -16,7 +16,6 @@ This repository is my personal project that I am creating to learn more about Ra
 - `bundle install` or `bundle`
 
 4. Suba o projeto pelo docker
-- `docker-compose build`
 - `docker-compose up`
 
 ### dependencies

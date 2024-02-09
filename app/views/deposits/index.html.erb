@@ -9,5 +9,77 @@
     <% end %>
   </ul>
 <% else %>
-  <p>Nenhum depósito associado a este cliente.</p>
+  <div class="no-deposits-container">
+  <p class="no-deposits">Nenhum depósito associado a este cliente.</p>
+</div>
 <% end %>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  background-color: #fff;
+  padding: 10px;
+  margin: 10px 0;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+}
+
+.no-deposits {
+  color: #777;
+  text-align: center;
+  margin-top: 20px;
+}
+
+td a.delete-link:hover {
+  text-decoration: underline;
+  color: #c0392b;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 12px;
+  text-align: left;
+}
+
+th {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px;
+  text-align: left;
+}
+
+.delete-link {
+  color: #e74c3c;
+  text-decoration: none;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.delete-link:hover {
+  text-decoration: underline;
+}
+
+.no-deposits-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh; /* Opcional: Isso preencherá a altura da viewport, ajuste conforme necessário */
+}
+
+.no-deposits {
+  color: #000;
+  text-align: center;
+  font-style: italic;
+  font-size: 50px;
+  /* Adicione outros estilos conforme necessário */
+}
+</style>
