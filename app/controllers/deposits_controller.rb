@@ -11,6 +11,11 @@ class DepositsController < ApplicationController
 
   def show
     @deposit = @client.deposits.find(params[:id])
+
+    respond_to do |format|
+      format.html # Para resposta HTML
+      format.json { render json: @deposit } # Para resposta JSON
+    end
     respond_to(&:html)
   end
 
@@ -28,7 +33,6 @@ class DepositsController < ApplicationController
   def destroy
     @client = Client.find(params[:client_id])
     @deposit = @client.deposits.find(params[:id])
-    puts "Client ID: #{@client.id}, Deposit ID: #{@deposit.id}"
     @deposit.destroy
     redirect_to client_path(@client), notice: 'Depósito excluído com sucesso.'
   end

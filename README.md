@@ -15,7 +15,7 @@ This repository is my personal project that I am creating to learn more about Ra
 3. Install the gems:
 - `bundle install` or `bundle`
 
-4. Suba a aplicação:
+4. Suba o projeto pelo docker
 - `docker-compose up`
 
 ### dependencies
