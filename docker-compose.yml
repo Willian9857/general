@@ -1,9 +1,11 @@
 version: '3'
 services:
   web:
-    image: general
+    build: .
     ports:
-      - "8080:8080"
-
-  redis:
-    image: "redis:alpine"
+      - "3000:3000"
+  db:
+    image: "alpine:latest"
+    command: tail -f /dev/null
+    volumes:
+      - ./db:/db
